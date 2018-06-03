@@ -4,7 +4,7 @@ pipeline {
         string(name: 'S3', defaultValue: 'super-original-name-for-task-bucket-1-upload')
            } */
     tools {
-        maven 'apache-maven-3.5.3'
+        maven 'maven'
     }
     stages {
         stage('Cloning Git repository') {
