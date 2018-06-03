@@ -9,7 +9,7 @@ pipeline {
         string(name: 'S3', defaultValue: 'super-original-name-for-task-bucket-1-upload')
            }
     stages {
-        stage(‘Cloning Git repository’) {
+        stage('Cloning Git repository') {
             agent { label 'ja2' } 
             steps {
                 deleteDir()
