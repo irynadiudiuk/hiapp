@@ -15,7 +15,7 @@ pipeline {
                 sh ‘pwd’ 
                   }
         }
-stage('Build with maven') {
+/* stage('Build with maven') {
             agent { label 'ja2' } 
             steps {
                 sh 'pwd' 
@@ -33,5 +33,7 @@ stage('Build with maven') {
                 emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
             }
         }
+    */
     }
+    
 }
