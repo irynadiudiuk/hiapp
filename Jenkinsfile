@@ -1,9 +1,6 @@
 pipeline {
     agent none 
-    tools { 
-             maven 'Maven 3.5.3' 
-             jdk 'jdk8' 
-    }
+  
 
     parameters {
         string(name: 'S3', defaultValue: 'super-original-name-for-task-bucket-1-upload')
