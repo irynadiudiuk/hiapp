@@ -29,16 +29,25 @@ pipeline {
                 }
         }
 
-  /*      stage('S3 upload') {
+        stage('S3 upload') {
             agent { label 'ja2' } 
                steps {
                echo '...we are uploading file to S3'
-                s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: Jenkinsfile”, path: '.', metadatas: [''], sseAlgorithm: '', workingDir: ''
+                s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: 'target/hiapp.war', path: '.', metadatas: [''], sseAlgorithm: '', workingDir: ''
                 deleteDir()
                 emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
             }
         }
-    */
+        stage('S3 upload') {
+            agent { label 'master' } 
+               steps {
+               echo '...we are uploading file to tomcat'
+               s3Download(file:'hiapp.war', bucket:'super-original-name-for-task-bucket-1-upload', path:'/usr/share/tomcat/webapps', force:true)
+                deleteDir()
+                emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
+            }
+        }
+    
     }
     
 }
