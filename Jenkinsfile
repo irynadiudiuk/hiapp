@@ -11,6 +11,7 @@ pipeline {
                 echo '...cloning GIT repository'
                 git 'https://github.com/irynadiudiuk/hiapp.git'
                 sh 'pwd' 
+                sh 'ls -al' 
                   }
         }
 /* stage('Build with maven') {
