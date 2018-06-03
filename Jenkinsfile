@@ -10,7 +10,7 @@ pipeline {
                 deleteDir()
                 echo '...cloning GIT repository'
                 git 'https://github.com/irynadiudiuk/hiapp.git'
-                sh ‘pwd’ 
+                sh 'pwd' 
                   }
         }
 /* stage('Build with maven') {
