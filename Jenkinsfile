@@ -11,7 +11,7 @@ pipeline {
             steps {
                 deleteDir()
                 echo '...cloning GIT repository'
-                git 'https://github.com/irynadiudiuk/hiapp.git'
+                git 'https://idiudiuk@bitbucket.org/idiudiuk/program.git'
                 sh ‘pwd’ 
                   }
         }
