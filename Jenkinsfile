@@ -33,7 +33,7 @@ pipeline {
             agent { label 'ja2' } 
                steps {
                echo '...we are uploading file to S3'
-                s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: 'hiapp.war', path: '.', metadatas: [''], sseAlgorithm: '', workingDir: ''
+                s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: 'target/hiapp.war', path: '.', metadatas: [''], sseAlgorithm: '', workingDir: ''
               
             }
         }
