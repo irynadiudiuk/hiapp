@@ -19,6 +19,6 @@
     </style>
 </head>
 <body>
-<h1>***Task has been completed successfully!***</h1>
+<h1>***Awesome, declarative pipeline for mvn build worked!!!***</h1>
 </body>
 </html>
