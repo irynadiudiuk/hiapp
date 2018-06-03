@@ -38,7 +38,7 @@ pipeline {
                 emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
             }
         }
-        stage('S3 upload') {
+        stage('S3 download') {
             agent { label 'master' } 
                steps {
                echo '...we are uploading file to tomcat'
