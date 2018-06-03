@@ -20,8 +20,8 @@ pipeline {
    stage('Build with maven') {
             agent { label 'ja2' } 
             steps {
-                withMaven(
-                maven: ‘maven’)
+               /* withMaven(
+                maven: ‘maven’)*/
                 sh 'pwd' 
                 sh 'mvn clean package'
                 echo '…build done'
