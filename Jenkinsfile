@@ -33,9 +33,8 @@ pipeline {
             agent { label 'ja2' } 
                steps {
                echo '...we are uploading file to S3'
-                s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: 'target/hiapp.war', path: '.', metadatas: [''], sseAlgorithm: '', workingDir: ''
-                deleteDir()
-                emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
+                s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: 'hiapp.war', path: '.', metadatas: [''], sseAlgorithm: '', workingDir: ''
+              
             }
         }
         stage('S3 download') {
