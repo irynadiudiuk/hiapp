@@ -11,7 +11,7 @@ pipeline {
         stage('Cloning Git repository') {
             agent { label 'ja2' } 
             steps {
-                deleteDir()
+                /* deleteDir() */
                 echo '...cloning GIT repository'
                 git 'https://github.com/irynadiudiuk/hiapp.git'
                 sh 'pwd' 
@@ -42,7 +42,7 @@ pipeline {
                steps {
                echo '...we are uploading file to tomcat'
                s3Download(file:'hiapp.war', bucket:'super-original-name-for-task-bucket-1-upload', path:'/usr/share/tomcat/webapps', force:true)
-                deleteDir()
+                /* deleteDir() */
                 emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
             }
         }
