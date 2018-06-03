@@ -14,7 +14,7 @@ pipeline {
                 sh 'ls -al' 
                   }
         }
-/* stage('Build with maven') {
+   stage('Build with maven') {
             agent { label 'ja2' } 
             steps {
                 sh 'pwd' 
@@ -23,7 +23,7 @@ pipeline {
                 }
         }
 
-        stage('S3 upload') {
+  /*      stage('S3 upload') {
             agent { label 'ja2' } 
                steps {
                echo '...we are uploading file to S3'
