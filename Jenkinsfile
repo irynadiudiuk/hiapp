@@ -9,7 +9,7 @@ pipeline {
     }
     stages {
         stage('Cloning Git repository') {
-            agent { label 'ja2' } 
+            agent { label 'master' } 
             steps {
                 deleteDir() 
                 echo '...cloning GIT repository'
