@@ -30,7 +30,7 @@ pipeline {
         }
 
         stage('S3 upload') {
-            agent { label 'master' } 
+            agent { label 'ja2' } 
                steps {
                echo '...we are uploading file to S3'
                sh 'pwd' 
@@ -43,7 +43,7 @@ pipeline {
                steps {
                  echo '...we are downloading file to tomcat'
                  sh 'sudo systemctl stop tomcat'
-                 s3Download(file:'/var/lib/jenkins/workspace/hiapp.war', bucket:'super-original-name-for-task-bucket-1-upload', path:'hiapp.war', force:true)
+                 s3Download(file:'/var/lib/jenkins/workspace/task10_maven_declarative/hiapp.war', bucket:'super-original-name-for-task-bucket-1-upload', path:'hiapp.war', force:true)
                  sh 'cp /var/lib/jenkins/workspace/task10_maven_declarative/hiapp.war /usr/share/tomcat/webapps/'
                  sh 'sudo systemctl restart tomcat' 
                  emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
