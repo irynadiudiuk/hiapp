@@ -42,8 +42,9 @@ pipeline {
             agent { label 'master' } 
                steps {
                  echo '...we are downloading file to tomcat'
+                 sh 'sudo systemctl stop tomcat
                  s3Download(file:'/usr/share/tomcat/webapps/', bucket:'super-original-name-for-task-bucket-1-upload', path:'hiapp.war', force:true)
-                 sh 'sudo systemctl restart tomcat' 
+                 sh 'sudo systemctl start tomcat' 
                  deleteDir() 
                  emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
             }
