@@ -43,7 +43,8 @@ pipeline {
                steps {
                  echo '...we are downloading file to tomcat'
                  sh 'sudo systemctl stop tomcat'
-                 s3Download(file:'/usr/share/tomcat/webapps/', bucket:'super-original-name-for-task-bucket-1-upload', path:'hiapp.war', force:true)
+                 s3Download(file:'/tmp', bucket:'super-original-name-for-task-bucket-1-upload', path:'hiapp.war', force:true)
+                 sh 'cp /tmp/hiapp.war /usr/share/tomcat/webapps/'
                  sh 'sudo systemctl restart tomcat' 
                  emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
             }
