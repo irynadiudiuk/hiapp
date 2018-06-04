@@ -11,7 +11,7 @@ pipeline {
         stage('Cloning Git repository') {
             agent { label 'ja2' } 
             steps {
-                /* deleteDir() */
+                deleteDir() 
                 echo '...cloning GIT repository'
                 git 'https://github.com/irynadiudiuk/hiapp.git'
                 sh 'pwd' 
