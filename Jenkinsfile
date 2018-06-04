@@ -9,7 +9,7 @@ pipeline {
     }
     stages {
         stage('Cloning Git repository') {
-            agent { label 'ja2' } 
+            agent { label 'master' } 
             steps {
                 deleteDir() 
                 echo '...cloning GIT repository'
@@ -30,7 +30,7 @@ pipeline {
         }
 
         stage('S3 upload') {
-            agent { label 'ja2' } 
+            agent { label 'master' } 
                steps {
                echo '...we are uploading file to S3'
                sh 'pwd' 
@@ -42,7 +42,6 @@ pipeline {
             agent { label 'master' } 
                steps {
                  echo '...we are downloading file to tomcat'
-                 git 'https://github.com/irynadiudiuk/hiapp.git'
                  sh 'sudo systemctl stop tomcat'
                  s3Download(file:'/var/lib/jenkins/workspace/', bucket:'super-original-name-for-task-bucket-1-upload', path:'hiapp.war', force:true)
                  sh 'cp /var/lib/jenkins/workspace/task10_maven_declarative/hiapp.war /usr/share/tomcat/webapps/'
