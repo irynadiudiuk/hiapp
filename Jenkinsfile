@@ -42,7 +42,7 @@ pipeline {
             agent { label 'master' } 
                steps {
                echo '...we are downloading file to tomcat'
-               s3Download(file:'greetings.war', bucket:'super-original-name-for-task-bucket-1-upload', path:'/usr/share/tomcat/webapps', force:true)
+               s3Download(file:'/usr/share/tomcat/webapps/hello.war', bucket:'super-original-name-for-task-bucket-1-upload', path:'greetings.war', force:true)
                 /* deleteDir() */
                 /*emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'*/
             }
