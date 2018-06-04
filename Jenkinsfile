@@ -34,7 +34,7 @@ pipeline {
                steps {
                echo '...we are uploading file to S3'
                sh 'pwd' 
-               s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: 'target/hiapp.war', path: 'greetings.war', metadatas: [''], sseAlgorithm: '', workingDir: ''
+               s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: 'target/hiapp.war', path: 'hiapp.war', metadatas: [''], sseAlgorithm: '', workingDir: ''
               
             }
         }
@@ -42,9 +42,9 @@ pipeline {
             agent { label 'master' } 
                steps {
                echo '...we are downloading file to tomcat'
-               s3Download(file:'/usr/share/tomcat/webapps/hello.war', bucket:'super-original-name-for-task-bucket-1-upload', path:'greetings.war', force:true)
-                /* deleteDir() */
-                /*emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'*/
+               s3Download(file:'/usr/share/tomcat/webapps/hiapp.war', bucket:'super-original-name-for-task-bucket-1-upload', path:'hiapp.war', force:true)
+                 deleteDir() 
+                 emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'
             }
         }
     
