@@ -42,7 +42,7 @@ pipeline {
             agent { label 'master' } 
                steps {
                  echo '...we are downloading file to tomcat'
-                 sh 'sudo systemctl stop tomcat
+                 sh 'sudo systemctl stop tomcat'
                  s3Download(file:'/usr/share/tomcat/webapps/', bucket:'super-original-name-for-task-bucket-1-upload', path:'hiapp.war', force:true)
                  sh 'sudo systemctl start tomcat' 
                  deleteDir() 
