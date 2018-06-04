@@ -34,15 +34,15 @@ pipeline {
                steps {
                echo '...we are uploading file to S3'
                sh 'pwd' 
-               s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: 'target/hiapp.war', path: 'hiappp.war', metadatas: [''], sseAlgorithm: '', workingDir: ''
+               s3Upload acl: 'Private', bucket: 'super-original-name-for-task-bucket-1-upload', cacheControl: '', excludePathPattern: '', file: 'target/hiapp.war', path: 'greetings.war', metadatas: [''], sseAlgorithm: '', workingDir: ''
               
             }
         }
         stage('S3 download') {
             agent { label 'master' } 
                steps {
-               echo '...we are uploading file to tomcat'
-               s3Download(file:'hiapp.war', bucket:'super-original-name-for-task-bucket-1-upload', path:'/usr/share/tomcat/webapps', force:true)
+               echo '...we are downloading file to tomcat'
+               s3Download(file:'greetings.war', bucket:'super-original-name-for-task-bucket-1-upload', path:'/usr/share/tomcat/webapps', force:true)
                 /* deleteDir() */
                 /*emailext body: 'This is a test mail', subject: 'This is a test mail', to: 'is31214@gmail.com'*/
             }
