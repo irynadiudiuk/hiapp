@@ -19,6 +19,6 @@
     </style>
 </head>
 <body>
-<h1>***Awesome, declarative pipeline for mvn build worked!!!***</h1>
+<h1>***Awesome, this build was made in Docker!!!***</h1>
 </body>
 </html>
