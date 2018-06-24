@@ -19,6 +19,6 @@
     </style>
 </head>
 <body>
-<h1>***Hello Taras, if you are reading this, Iryna's task is completed successfully! Have a nice day!***</h1>
+<h1>***Awesome, this build was made in Docker!!!***</h1>
 </body>
 </html>
